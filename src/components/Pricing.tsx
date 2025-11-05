@@ -1,109 +1,61 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const batteryPrices = [
-  { model: "iPhone 7", original: "€45", replacement: "€35" },
-  { model: "iPhone 8", original: "€50", replacement: "€40" },
-  { model: "iPhone X", original: "€60", replacement: "€45" },
-  { model: "iPhone 11", original: "€65", replacement: "€50" },
-  { model: "iPhone 12", original: "€70", replacement: "€55" },
-  { model: "iPhone 13", original: "€75", replacement: "€60" },
-  { model: "iPhone 14", original: "€80", replacement: "€65" },
-  { model: "iPhone 15", original: "€85", replacement: "€70" },
-];
-
-const screenPrices = [
-  { model: "iPhone 7", original: "€90", replacement: "€60" },
-  { model: "iPhone 8", original: "€95", replacement: "€65" },
-  { model: "iPhone X", original: "€180", replacement: "€120" },
-  { model: "iPhone 11", original: "€190", replacement: "€130" },
-  { model: "iPhone 12", original: "€220", replacement: "€150" },
-  { model: "iPhone 13", original: "€250", replacement: "€170" },
-  { model: "iPhone 14", original: "€280", replacement: "€190" },
-  { model: "iPhone 15", original: "€320", replacement: "€220" },
-];
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Pricing = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="pricing" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Price List</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Pricing</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Transparent pricing for all iPhone models. Choose between original parts or high-quality replacements.
+            Transparent pricing for all iPhone models and repair services.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Battery Pricing */}
+        <div className="max-w-4xl mx-auto">
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle className="text-2xl">Battery Replacement</CardTitle>
+              <CardTitle className="text-2xl text-center">Our Services</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="font-semibold">iPhone Model</TableHead>
-                      <TableHead className="font-semibold text-right">Original Battery</TableHead>
-                      <TableHead className="font-semibold text-right">Quality Replacement</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {batteryPrices.map((item, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{item.model}</TableCell>
-                        <TableCell className="text-right">{item.original}</TableCell>
-                        <TableCell className="text-right">{item.replacement}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+            <CardContent className="text-center space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                <div className="p-4 border border-border rounded-lg">
+                  <h3 className="font-semibold text-lg mb-2">Battery Replacement</h3>
+                  <p className="text-muted-foreground text-sm">Original and replacement options available</p>
+                </div>
+                <div className="p-4 border border-border rounded-lg">
+                  <h3 className="font-semibold text-lg mb-2">Screen Replacement</h3>
+                  <p className="text-muted-foreground text-sm">High-quality screens for all iPhone models</p>
+                </div>
+                <div className="p-4 border border-border rounded-lg">
+                  <h3 className="font-semibold text-lg mb-2">Component Repairs</h3>
+                  <p className="text-muted-foreground text-sm">Speaker, camera, charging port, and more</p>
+                </div>
+                <div className="p-4 border border-border rounded-lg">
+                  <h3 className="font-semibold text-lg mb-2">Other Services</h3>
+                  <p className="text-muted-foreground text-sm">Power button, microphone, housing replacement</p>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Screen Pricing */}
-          <Card className="shadow-card">
-            <CardHeader>
-              <CardTitle className="text-2xl">Screen Replacement</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="font-semibold">iPhone Model</TableHead>
-                      <TableHead className="font-semibold text-right">Original Screen</TableHead>
-                      <TableHead className="font-semibold text-right">Quality Replacement</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {screenPrices.map((item, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{item.model}</TableCell>
-                        <TableCell className="text-right">{item.original}</TableCell>
-                        <TableCell className="text-right">{item.replacement}</TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </div>
+              
+              <Button 
+                size="lg" 
+                onClick={() => navigate('/price-list')}
+                className="shadow-glow"
+              >
+                View Complete Price List
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              
+              <p className="text-sm text-muted-foreground">
+                All prices include labor and warranty
+              </p>
             </CardContent>
           </Card>
         </div>
-
-        <p className="text-center text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-          All prices include labor and warranty. Contact us for repairs not listed above.
-        </p>
       </div>
     </section>
   );

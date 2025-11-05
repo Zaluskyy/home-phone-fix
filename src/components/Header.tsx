@@ -31,10 +31,10 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-lg">
-              iR
+            <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground font-bold text-lg">
+              📱
             </div>
-            <span className="font-bold text-lg md:text-xl">iPhone Repair Pro</span>
+            <span className="font-bold text-lg md:text-xl">iCuro</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -52,7 +52,7 @@ const Header = () => {
               Services
             </button>
             <button
-              onClick={() => scrollToSection("pricing")}
+              onClick={() => window.location.href = '/price-list'}
               className="text-foreground hover:text-primary transition-colors"
             >
               Price List
@@ -92,7 +92,7 @@ const Header = () => {
                 Services
               </button>
               <button
-                onClick={() => scrollToSection("pricing")}
+                onClick={() => window.location.href = '/price-list'}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
                 Price List
