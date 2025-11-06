@@ -12,7 +12,11 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (location.pathname !== "/") {
+        setIsScrolled(true); // zawsze włączone tło na podstronach
+      } else {
+        setIsScrolled(window.scrollY > 10); // normalne zachowanie na stronie głównej
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -98,7 +102,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border animate-fade-in bg-background/95 backdrop-blur-md">
+          <nav className="md:hidden py-4 border-t border-border animate-fade-in ">
             <div className="flex flex-col gap-4">
               <button
                 onClick={() => scrollToSection("home")}
