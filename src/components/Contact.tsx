@@ -26,7 +26,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Telefon</p>
-                  <p className="font-medium">+48 537-728-008</p>
+                  <p className="font-medium">+48 537 728 008</p>
                 </div>
               </div>
 
@@ -36,7 +36,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">WhatsApp</p>
-                  <p className="font-medium">+48 537-728-008</p>
+                  <p className="font-medium">+48 537 728 008</p>
                 </div>
               </div>
 
@@ -56,9 +56,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Godziny pracy</p>
-                  <p className="font-medium">
-                    Poniedziałek-Piątek: 9:00 AM - 7:00 PM
-                  </p>
+                  <p className="font-medium">Pon-Pt: 9:00 AM - 7:00 PM</p>
                 </div>
               </div>
 
