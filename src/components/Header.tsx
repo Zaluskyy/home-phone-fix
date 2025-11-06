@@ -51,12 +51,6 @@ const Header = () => {
               Services
             </button>
             <button
-              onClick={() => window.location.href = '/price-list'}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Price List
-            </button>
-            <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground hover:text-primary transition-colors"
             >
@@ -89,12 +83,6 @@ const Header = () => {
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
                 Services
-              </button>
-              <button
-                onClick={() => window.location.href = '/price-list'}
-                className="text-left text-foreground hover:text-primary transition-colors py-2"
-              >
-                Price List
               </button>
               <button
                 onClick={() => scrollToSection("contact")}

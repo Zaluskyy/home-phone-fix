@@ -1,4 +1,6 @@
-import { Facebook, Instagram } from "lucide-react";
+import { Instagram } from "lucide-react";
+import { FaTiktok, FaYoutube } from "react-icons/fa";
+import logo from "@/assets/logo-icuro.png";
 
 const Footer = () => {
   return (
@@ -6,21 +8,11 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center text-muted-foreground font-bold">
-              📱
-            </div>
+            <img src={logo} alt="iCuro Logo" className="h-8 w-8" />
             <span className="font-bold">iCuro</span>
           </div>
 
           <div className="flex items-center gap-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Facebook size={20} />
-            </a>
             <a
               href="https://instagram.com"
               target="_blank"
@@ -28,6 +20,22 @@ const Footer = () => {
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Instagram size={20} />
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <FaTiktok size={20} />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <FaYoutube size={20} />
             </a>
           </div>
 
