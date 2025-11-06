@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone, MessageCircle, ListOrdered } from "lucide-react";
 import heroImage from "@/assets/hero-repair.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
   const handleContact = () => {
     const element = document.getElementById("contact");
     if (element) {
@@ -47,6 +50,10 @@ const Hero = () => {
             <Button size="lg" variant="outline" onClick={handleWhatsApp}>
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
+            </Button>
+            <Button size="lg" variant="secondary" onClick={() => navigate('/repairs-pricing')}>
+              <ListOrdered className="mr-2 h-5 w-5" />
+              Cennik napraw
             </Button>
           </div>
         </div>
