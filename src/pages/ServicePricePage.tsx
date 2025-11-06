@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
 
 // --- Import Danych i Definicji Typów z pricingData.tsx ---
 import { repairsPricingData } from "@/data/PricingData";
@@ -72,6 +73,10 @@ const ServicePricePage = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
   const navigate = useNavigate();
   const defaultPrice = "Zapytaj";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [serviceSlug]);
 
   // Sprawdzenie, czy usługa istnieje w definicji oraz w danych cenowych
   const service = serviceInfo[serviceSlug || ""];
