@@ -56,7 +56,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Godziny pracy</p>
-                  <p className="font-medium">Pon-Pt: 9:00 AM - 7:00 PM</p>
+                  <p className="font-medium">Pon-Pt: 9:00-17:00</p>
                 </div>
               </div>
 
