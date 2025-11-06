@@ -16,6 +16,25 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+// --- Import danych i definicji typów z pricingData.tsx ---
+// Pamiętaj, aby ścieżka do importu była poprawna. Zakładam, że jest to plik obok.
+import { repairsPricingData } from "@/data/PricingData";
+
+// Ponowne definicje typów dla bezpieczeństwa (lub import z osobnego pliku z typami)
+interface TwoColumnPrices {
+  original: string;
+  replacement: string;
+}
+
+type ServicePrices = {
+  [model: string]: string | TwoColumnPrices;
+};
+
+type PricingData = {
+  [serviceId: string]: ServicePrices;
+};
+// ----------------------------------------------------------------------
+
 const iphoneModels = [
   "iPhone 8",
   "iPhone 8 Plus",
@@ -42,31 +61,52 @@ const iphoneModels = [
   "iPhone 15 Plus",
   "iPhone 15 Pro",
   "iPhone 15 Pro Max",
+  "iPhone 16",
+  "iPhone 16 Plus",
+  "iPhone 16 Pro",
+  "iPhone 16 Pro Max",
 ];
 
 const services = [
-  { id: "screen", title: "Screen Replacement", hasTwoColumns: true },
-  { id: "battery", title: "Battery Replacement", hasTwoColumns: true },
-  { id: "speaker", title: "Speaker Replacement", hasTwoColumns: false },
-  { id: "chargingPort", title: "Charging Port Replacement", hasTwoColumns: false },
-  { id: "cameraGlass", title: "Camera Glass Replacement", hasTwoColumns: false },
-  { id: "camera", title: "Camera Replacement", hasTwoColumns: false },
-  { id: "powerButton", title: "Power Button Repair", hasTwoColumns: false },
-  { id: "microphone", title: "Microphone Replacement", hasTwoColumns: false },
-  { id: "housing", title: "Housing/Body Replacement", hasTwoColumns: false },
+  { id: "screen", title: "Wymiana Wyświetlacza", hasTwoColumns: true },
+  { id: "battery", title: "Wymiana Baterii", hasTwoColumns: true },
+  { id: "speaker", title: "Wymiana Głośnika", hasTwoColumns: false },
+  {
+    id: "chargingPort",
+    title: "Wymiana Gniazda Ładowania",
+    hasTwoColumns: false,
+  },
+  {
+    id: "cameraGlass",
+    title: "Wymiana Szybki Aparatu",
+    hasTwoColumns: false,
+  },
+  { id: "camera", title: "Wymiana Aparatu", hasTwoColumns: false },
+  {
+    id: "powerButton",
+    title: "Naprawa Przycisku Zasilania",
+    hasTwoColumns: false,
+  },
+  { id: "microphone", title: "Wymiana Mikrofonu", hasTwoColumns: false },
+  { id: "housing", title: "Wymiana Korpusu", hasTwoColumns: false },
 ];
 
 const RepairsPricing = () => {
+  const defaultPrice = "Zapytaj"; // Domyślny komunikat, gdy brakuje ceny
+
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Cennik napraw</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">
+              Cennik napraw
+            </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Click on any service to view detailed pricing for all iPhone models
+              Kliknij dowolną usługę, aby zobaczyć szczegółowy cennik dla
+              wszystkich modeli iPhone
             </p>
           </div>
 
@@ -83,31 +123,69 @@ const RepairsPricing = () => {
                         <Table>
                           <TableHeader>
                             <TableRow>
-                              <TableHead className="font-semibold">iPhone Model</TableHead>
+                              <TableHead className="font-semibold">
+                                iPhone Model
+                              </TableHead>
                               {service.hasTwoColumns ? (
                                 <>
-                                  <TableHead className="font-semibold text-right">Original Part</TableHead>
-                                  <TableHead className="font-semibold text-right">Replacement Part</TableHead>
+                                  <TableHead className="font-semibold text-right">
+                                    Oryginalna Część
+                                  </TableHead>
+                                  <TableHead className="font-semibold text-right">
+                                    Zamiennik
+                                  </TableHead>
                                 </>
                               ) : (
-                                <TableHead className="font-semibold text-right">Price</TableHead>
+                                <TableHead className="font-semibold text-right">
+                                  Cena
+                                </TableHead>
                               )}
                             </TableRow>
                           </TableHeader>
                           <TableBody>
-                            {iphoneModels.map((model, index) => (
-                              <TableRow key={index}>
-                                <TableCell className="font-medium">{model}</TableCell>
-                                {service.hasTwoColumns ? (
-                                  <>
-                                    <TableCell className="text-right">0 zł</TableCell>
-                                    <TableCell className="text-right">0 zł</TableCell>
-                                  </>
-                                ) : (
-                                  <TableCell className="text-right">0 zł</TableCell>
-                                )}
-                              </TableRow>
-                            ))}
+                            {iphoneModels.map((model, index) => {
+                              // Pobieranie danych cenowych
+                              const priceData =
+                                repairsPricingData[service.id]?.[model];
+
+                              if (service.hasTwoColumns) {
+                                // Obsługa usługi z dwiema kolumnami (Screen, Battery)
+                                const prices = priceData as TwoColumnPrices;
+                                const originalPrice =
+                                  prices?.original ?? defaultPrice;
+                                const replacementPrice =
+                                  prices?.replacement ?? defaultPrice;
+
+                                return (
+                                  <TableRow key={index}>
+                                    <TableCell className="font-medium">
+                                      {model}
+                                    </TableCell>
+                                    <TableCell className="text-right font-bold ">
+                                      {originalPrice}
+                                    </TableCell>
+                                    <TableCell className="text-right">
+                                      {replacementPrice}
+                                    </TableCell>
+                                  </TableRow>
+                                );
+                              }
+
+                              // Obsługa usługi z jedną kolumną
+                              const singlePrice =
+                                (priceData as string) ?? defaultPrice;
+
+                              return (
+                                <TableRow key={index}>
+                                  <TableCell className="font-medium">
+                                    {model}
+                                  </TableCell>
+                                  <TableCell className="text-right font-bold">
+                                    {singlePrice}
+                                  </TableCell>
+                                </TableRow>
+                              );
+                            })}
                           </TableBody>
                         </Table>
                       </div>
@@ -119,7 +197,8 @@ const RepairsPricing = () => {
           </Card>
 
           <p className="text-center text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-            All prices include labor and warranty. Contact us for more information.
+            Wszystkie ceny zawierają robociznę i gwarancję. Skontaktuj się z
+            nami, aby uzyskać więcej informacji.
           </p>
         </div>
       </section>

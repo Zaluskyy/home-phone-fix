@@ -13,6 +13,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 
+// --- Import Danych i Definicji Typów z pricingData.tsx ---
+import { repairsPricingData } from "@/data/PricingData";
+
+// Ponowne definicje typów z pliku pricingData.tsx (dla bezpiecznego dostępu)
+interface TwoColumnPrices {
+  original: string;
+  replacement: string;
+}
+
+// ----------------------------------------------------------------------
+
 const iphoneModels = [
   "iPhone 8",
   "iPhone 8 Plus",
@@ -39,34 +50,49 @@ const iphoneModels = [
   "iPhone 15 Plus",
   "iPhone 15 Pro",
   "iPhone 15 Pro Max",
+  "iPhone 16",
+  "iPhone 16 Plus",
+  "iPhone 16 Pro",
+  "iPhone 16 Pro Max",
 ];
 
 const serviceInfo: Record<string, { title: string; hasTwoColumns: boolean }> = {
-  screen: { title: "Screen Replacement", hasTwoColumns: true },
-  battery: { title: "Battery Replacement", hasTwoColumns: true },
-  speaker: { title: "Speaker Replacement", hasTwoColumns: false },
-  chargingPort: { title: "Charging Port Replacement", hasTwoColumns: false },
-  cameraGlass: { title: "Camera Glass Replacement", hasTwoColumns: false },
-  camera: { title: "Camera Replacement", hasTwoColumns: false },
-  powerButton: { title: "Power Button Repair", hasTwoColumns: false },
-  microphone: { title: "Microphone Replacement", hasTwoColumns: false },
-  housing: { title: "Housing/Body Replacement", hasTwoColumns: false },
+  screen: { title: "Wymiana Wyświetlacza", hasTwoColumns: true },
+  battery: { title: "Wymiana Baterii", hasTwoColumns: true },
+  speaker: { title: "Wymiana Głośnika", hasTwoColumns: false },
+  chargingPort: { title: "Wymiana Gniazda Ładowania", hasTwoColumns: false },
+  cameraGlass: { title: "Wymiana Szybki Aparatu", hasTwoColumns: false },
+  camera: { title: "Wymiana Aparatu", hasTwoColumns: false },
+  powerButton: { title: "Naprawa Przycisku Zasilania", hasTwoColumns: false },
+  microphone: { title: "Wymiana Mikrofonu", hasTwoColumns: false },
+  housing: { title: "Wymiana Korpusu", hasTwoColumns: false },
 };
 
 const ServicePricePage = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
   const navigate = useNavigate();
+  const defaultPrice = "Zapytaj";
 
+  // Sprawdzenie, czy usługa istnieje w definicji oraz w danych cenowych
   const service = serviceInfo[serviceSlug || ""];
+  const servicePrices = repairsPricingData[serviceSlug || ""];
 
-  if (!service) {
+  if (!service || !servicePrices) {
     return (
       <div className="min-h-screen">
         <Header />
         <section className="py-24 md:py-32 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Service Not Found</h1>
-            <Button onClick={() => navigate("/")}>Return Home</Button>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">
+              Usługa niedostępna
+            </h1>
+            <p className="mb-6 text-muted-foreground">
+              Nie znaleziono szczegółów dla usługi: **{serviceSlug}**
+            </p>
+            <Button onClick={() => navigate("/cennik-napraw")}>
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Wróć do pełnego cennika
+            </Button>
           </div>
         </section>
         <Footer />
@@ -74,62 +100,94 @@ const ServicePricePage = () => {
     );
   }
 
+  // Użyj service.title dla nagłówków
+  const { title, hasTwoColumns } = service;
+
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4">
-          <Button
-            variant="ghost"
-            onClick={() => navigate(-1)}
-            className="mb-6"
-          >
+          <Button variant="ghost" onClick={() => navigate(-1)} className="mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
+            Wróć
           </Button>
 
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">{service.title}</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">{title}</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Pricing for all iPhone models
+              Cennik dla wszystkich modeli iPhone
             </p>
           </div>
 
           <Card className="shadow-card max-w-4xl mx-auto">
             <CardHeader>
-              <CardTitle className="text-2xl">{service.title} Prices</CardTitle>
+              <CardTitle className="text-2xl">Ceny według modelu</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="font-semibold">iPhone Model</TableHead>
-                      {service.hasTwoColumns ? (
+                      <TableHead className="font-semibold">
+                        Model iPhone
+                      </TableHead>
+                      {hasTwoColumns ? (
                         <>
-                          <TableHead className="font-semibold text-right">Original Part</TableHead>
-                          <TableHead className="font-semibold text-right">Replacement Part</TableHead>
+                          <TableHead className="font-semibold text-right">
+                            Oryginalna Część
+                          </TableHead>
+                          <TableHead className="font-semibold text-right">
+                            Zamiennik
+                          </TableHead>
                         </>
                       ) : (
-                        <TableHead className="font-semibold text-right">Price</TableHead>
+                        <TableHead className="font-semibold text-right">
+                          Cena
+                        </TableHead>
                       )}
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {iphoneModels.map((model, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{model}</TableCell>
-                        {service.hasTwoColumns ? (
-                          <>
-                            <TableCell className="text-right">0 zł</TableCell>
-                            <TableCell className="text-right">0 zł</TableCell>
-                          </>
-                        ) : (
-                          <TableCell className="text-right">0 zł</TableCell>
-                        )}
-                      </TableRow>
-                    ))}
+                    {iphoneModels.map((model, index) => {
+                      // Pobieranie danych cenowych dla danego modelu w ramach wybranej usługi
+                      const priceData = servicePrices[model];
+
+                      if (hasTwoColumns) {
+                        // Obsługa usługi z dwiema kolumnami (Screen, Battery)
+                        const prices = priceData as TwoColumnPrices;
+                        const originalPrice = prices?.original ?? defaultPrice;
+                        const replacementPrice =
+                          prices?.replacement ?? defaultPrice;
+
+                        return (
+                          <TableRow key={index}>
+                            <TableCell className="font-medium">
+                              {model}
+                            </TableCell>
+                            <TableCell className="text-right font-bold">
+                              {originalPrice}
+                            </TableCell>
+                            <TableCell className="text-right">
+                              {replacementPrice}
+                            </TableCell>
+                          </TableRow>
+                        );
+                      }
+
+                      // Obsługa usługi z jedną kolumną
+                      const singlePrice = (priceData as string) ?? defaultPrice;
+
+                      return (
+                        <TableRow key={index}>
+                          <TableCell className="font-medium">{model}</TableCell>
+                          <TableCell className="text-right font-bold ">
+                            {singlePrice}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </div>
@@ -137,7 +195,8 @@ const ServicePricePage = () => {
           </Card>
 
           <p className="text-center text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-            All prices include labor and warranty. Contact us for more information.
+            Wszystkie ceny zawierają robociznę i gwarancję. Skontaktuj się z
+            nami, aby uzyskać więcej informacji.
           </p>
         </div>
       </section>
