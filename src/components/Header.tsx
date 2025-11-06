@@ -26,7 +26,7 @@ const Header = () => {
 
   const scrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
-    
+
     if (location.pathname === "/") {
       // Already on homepage, just scroll
       const element = document.getElementById(id);
@@ -49,12 +49,17 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-md"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <button onClick={handleLogoClick} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <button
+            onClick={handleLogoClick}
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
             <img src={logo} alt="iCuro Logo" className="h-10 w-10" />
             <span className="font-bold text-lg md:text-xl">iCuro</span>
           </button>
@@ -65,21 +70,21 @@ const Header = () => {
               onClick={() => scrollToSection("home")}
               className="text-foreground hover:text-primary transition-colors"
             >
-              Home
+              Strona główna
             </button>
             <button
               onClick={() => scrollToSection("services")}
               className="text-foreground hover:text-primary transition-colors"
             >
-              Services
+              Usługi
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection("contact")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Contact
-            </button>
-            <Button onClick={() => scrollToSection("contact")}>Get Started</Button>
+            </button> */}
+            <Button onClick={() => scrollToSection("contact")}>Kontakt</Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -99,22 +104,25 @@ const Header = () => {
                 onClick={() => scrollToSection("home")}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
-                Home
+                Strona główna
               </button>
               <button
                 onClick={() => scrollToSection("services")}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
-                Services
+                Usługi
               </button>
-              <button
+              {/* <button
                 onClick={() => scrollToSection("contact")}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
-                Contact
-              </button>
-              <Button onClick={() => scrollToSection("contact")} className="w-full">
-                Get Started
+                Kontakt
+              </button> */}
+              <Button
+                onClick={() => scrollToSection("contact")}
+                className="w-full"
+              >
+                Kontakt
               </Button>
             </div>
           </nav>

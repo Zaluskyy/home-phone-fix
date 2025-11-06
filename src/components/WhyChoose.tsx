@@ -1,7 +1,7 @@
 import { Clock, Award, DollarSign, Star, Shield, Search } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
-const benefits = [
+const benefits2 = [
   {
     icon: Clock,
     title: "Fast Repair Time",
@@ -34,14 +34,47 @@ const benefits = [
   },
 ];
 
+const benefits = [
+  {
+    icon: Clock,
+    title: "Szybki czas naprawy",
+    description: "Większość napraw wykonywana w ciągu 1–2 godzin",
+  },
+  {
+    icon: Award,
+    title: "Wysokiej jakości części",
+    description: "Oryginalne i premium zamienniki do wyboru",
+  },
+  {
+    icon: DollarSign,
+    title: "Przystępne ceny",
+    description: "Konkurencyjne ceny bez utraty jakości",
+  },
+  {
+    icon: Star,
+    title: "Profesjonalna obsługa",
+    description: "Lata doświadczenia w naprawach iPhone’ów",
+  },
+  {
+    icon: Shield,
+    title: "Gwarancja w cenie",
+    description: "Wszystkie naprawy objęte są gwarancją",
+  },
+  {
+    icon: Search,
+    title: "Darmowa diagnostyka",
+    description: "Bezpłatna diagnostyka urządzenia",
+  },
+];
+
 const WhyChoose = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Dlaczego My?</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We're committed to providing the best iPhone repair service
+            Zapewniamy najwyższej jakości serwis naprawy iPhone’ów
           </p>
         </div>
 
@@ -56,7 +89,9 @@ const WhyChoose = () => {
                   <benefit.icon className="h-7 w-7 text-primary-foreground" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {benefit.description}
+                </p>
               </CardContent>
             </Card>
           ))}

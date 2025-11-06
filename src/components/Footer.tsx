@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            © 2024 iCuro. All rights reserved.
+            © 2025 iCuro. Wszelkie prawa zastrzeżone.
           </p>
         </div>
       </div>
