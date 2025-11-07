@@ -112,6 +112,10 @@ export const repairsPricingData: PricingData = {
     "iPhone 15 Plus": "520 zł",
     "iPhone 15 Pro": "550 zł",
     "iPhone 15 Pro Max": "580 zł",
+    "iPhone 16": "500 zł",
+    "iPhone 16 Plus": "520 zł",
+    "iPhone 16 Pro": "550 zł",
+    "iPhone 16 Pro Max": "580 zł",
   },
 
   chargingPort: {
@@ -204,6 +208,10 @@ export const repairsPricingData: PricingData = {
     "iPhone 15 Plus": "1000 zł",
     "iPhone 15 Pro": "900 zł", // Moduł główny
     "iPhone 15 Pro Max": "1000 zł", // Moduł główny
+    "iPhone 16": "900 zł",
+    "iPhone 16 Plus": "1000 zł",
+    "iPhone 16 Pro": "900 zł", // Moduł główny
+    "iPhone 16 Pro Max": "1000 zł", // Moduł główny
   },
 
   powerButton: {
