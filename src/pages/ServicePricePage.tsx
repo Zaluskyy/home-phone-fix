@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
 
@@ -57,16 +58,70 @@ const iphoneModels = [
   "iPhone 16 Pro Max",
 ];
 
-const serviceInfo: Record<string, { title: string; hasTwoColumns: boolean }> = {
-  screen: { title: "Wymiana Wyświetlacza", hasTwoColumns: true },
-  battery: { title: "Wymiana Baterii", hasTwoColumns: true },
-  speaker: { title: "Wymiana Głośnika", hasTwoColumns: false },
-  chargingPort: { title: "Wymiana Gniazda Ładowania", hasTwoColumns: false },
-  cameraGlass: { title: "Wymiana Szybki Aparatu", hasTwoColumns: false },
-  camera: { title: "Wymiana Aparatu", hasTwoColumns: false },
-  powerButton: { title: "Naprawa Przycisku Zasilania", hasTwoColumns: false },
-  microphone: { title: "Wymiana Mikrofonu", hasTwoColumns: false },
-  housing: { title: "Wymiana Korpusu", hasTwoColumns: false },
+const serviceInfo: Record<string, { title: string; hasTwoColumns: boolean; seoTitle: string; seoDescription: string; seoKeywords: string }> = {
+  screen: { 
+    title: "Wymiana Wyświetlacza iPhone", 
+    hasTwoColumns: true,
+    seoTitle: "Wymiana Wyświetlacza iPhone Warszawa - Cennik | iCuro Serwis iPhone",
+    seoDescription: "Profesjonalna wymiana wyświetlacza iPhone Warszawa. Cennik wymiany ekranu iPhone wszystkich modeli. Oryginalne części i zamienniki. Szybka realizacja, gwarancja.",
+    seoKeywords: "wymiana wyświetlacza iPhone Warszawa, wymiana ekranu iPhone, cennik wymiany wyświetlacza iPhone, naprawa ekranu iPhone Warszawa"
+  },
+  battery: { 
+    title: "Wymiana Baterii iPhone", 
+    hasTwoColumns: true,
+    seoTitle: "Wymiana Baterii iPhone Warszawa - Cennik | iCuro Serwis iPhone",
+    seoDescription: "Wymiana baterii iPhone Warszawa - cennik dla wszystkich modeli. Oryginalne baterie Apple i zamienniki. Szybka wymiana, gwarancja, przystępne ceny.",
+    seoKeywords: "wymiana baterii iPhone Warszawa, wymiana baterii iPhone, cennik wymiany baterii iPhone, serwis iPhone Warszawa"
+  },
+  speaker: { 
+    title: "Wymiana Głośnika iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Wymiana Głośnika iPhone Warszawa - Cennik | iCuro Serwis",
+    seoDescription: "Wymiana głośnika iPhone w Warszawie. Profesjonalna naprawa dźwięku iPhone. Cennik wymiany głośnika dla wszystkich modeli.",
+    seoKeywords: "wymiana głośnika iPhone Warszawa, naprawa głośnika iPhone, serwis iPhone Warszawa"
+  },
+  chargingPort: { 
+    title: "Wymiana Złącza Ładowania iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Wymiana Gniazda Ładowania iPhone Warszawa - Cennik | iCuro",
+    seoDescription: "Wymiana złącza ładowania iPhone Warszawa. Naprawa gniazda ładowania iPhone wszystkich modeli. Szybka realizacja, gwarancja.",
+    seoKeywords: "wymiana złącza ładowania iPhone Warszawa, naprawa gniazda iPhone, serwis iPhone Warszawa"
+  },
+  cameraGlass: { 
+    title: "Wymiana Szybki Aparatu iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Wymiana Szybki Aparatu iPhone Warszawa - Cennik | iCuro",
+    seoDescription: "Wymiana szybki aparatu iPhone w Warszawie. Naprawa szkiełka kamery iPhone. Cennik dla wszystkich modeli, szybka realizacja.",
+    seoKeywords: "wymiana szybki aparatu iPhone Warszawa, naprawa aparatu iPhone, serwis iPhone Warszawa"
+  },
+  camera: { 
+    title: "Wymiana Aparatu iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Wymiana Aparatu iPhone Warszawa - Cennik | iCuro Serwis",
+    seoDescription: "Wymiana aparatu iPhone Warszawa - przedni i tylny aparat. Cennik wymiany kamery iPhone dla wszystkich modeli. Gwarancja jakości.",
+    seoKeywords: "wymiana aparatu iPhone Warszawa, naprawa kamery iPhone, serwis iPhone Warszawa"
+  },
+  powerButton: { 
+    title: "Naprawa Przycisku Zasilania iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Naprawa Przycisku Zasilania iPhone Warszawa - Cennik | iCuro",
+    seoDescription: "Naprawa przycisku zasilania iPhone w Warszawie. Wymiana przycisku power iPhone. Cennik dla wszystkich modeli, szybka naprawa.",
+    seoKeywords: "naprawa przycisku iPhone Warszawa, wymiana przycisku zasilania iPhone, serwis iPhone Warszawa"
+  },
+  microphone: { 
+    title: "Wymiana Mikrofonu iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Wymiana Mikrofonu iPhone Warszawa - Cennik | iCuro Serwis",
+    seoDescription: "Wymiana mikrofonu iPhone w Warszawie. Naprawa mikrofonu iPhone wszystkich modeli. Cennik, gwarancja, szybka realizacja.",
+    seoKeywords: "wymiana mikrofonu iPhone Warszawa, naprawa mikrofonu iPhone, serwis iPhone Warszawa"
+  },
+  housing: { 
+    title: "Wymiana Korpusu iPhone", 
+    hasTwoColumns: false,
+    seoTitle: "Wymiana Korpusu iPhone Warszawa - Cennik | iCuro Serwis",
+    seoDescription: "Wymiana obudowy iPhone w Warszawie. Naprawa korpusu iPhone. Cennik wymiany obudowy dla wszystkich modeli iPhone.",
+    seoKeywords: "wymiana korpusu iPhone Warszawa, wymiana obudowy iPhone, serwis iPhone Warszawa"
+  },
 };
 
 const ServicePricePage = () => {
@@ -106,10 +161,11 @@ const ServicePricePage = () => {
   }
 
   // Użyj service.title dla nagłówków
-  const { title, hasTwoColumns } = service;
+  const { title, hasTwoColumns, seoTitle, seoDescription, seoKeywords } = service;
 
   return (
     <div className="min-h-screen">
+      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} />
       <Header />
 
       <section className="py-24 md:py-32 bg-background">
@@ -120,9 +176,10 @@ const ServicePricePage = () => {
           </Button>
 
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">{title}</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">{title} Warszawa - Cennik</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cennik dla wszystkich modeli iPhone
+              Cennik {title.toLowerCase()} dla wszystkich modeli iPhone w Warszawie. 
+              Profesjonalny serwis iPhone z gwarancją i szybką realizacją.
             </p>
           </div>
 

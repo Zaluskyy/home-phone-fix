@@ -15,6 +15,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 // --- Import danych i definicji typów z pricingData.tsx ---
 // Pamiętaj, aby ścieżka do importu była poprawna. Zakładam, że jest to plik obok.
@@ -96,17 +97,22 @@ const RepairsPricing = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO 
+        title="Cennik Napraw iPhone Warszawa - Wymiana Baterii i Wyświetlacza | iCuro"
+        description="Pełny cennik napraw iPhone w Warszawie. Wymiana baterii iPhone, wymiana wyświetlacza iPhone, naprawa iPhone wszystkich modeli. Przejrzyste ceny, oryginalne części, gwarancja."
+        keywords="cennik napraw iPhone Warszawa, cena wymiany baterii iPhone, cena wymiany wyświetlacza iPhone, naprawa iPhone Warszawa ceny, serwis iPhone Warszawa cennik"
+      />
       <Header />
 
       <section className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-5xl font-bold mb-4">
-              Cennik napraw
+              Cennik Napraw iPhone Warszawa
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Kliknij dowolną usługę, aby zobaczyć szczegółowy cennik dla
-              wszystkich modeli iPhone
+              Kompleksowy cennik napraw iPhone. Wymiana baterii iPhone, wymiana wyświetlacza iPhone 
+              i wszystkie inne usługi serwisowe. Kliknij usługę, aby zobaczyć szczegółowy cennik.
             </p>
           </div>
 
