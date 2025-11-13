@@ -78,16 +78,16 @@ const services2 = [
 const services = [
   {
     icon: Smartphone,
-    title: "Wymiana wyświetlacza",
+    title: "Wymiana wyświetlacza iPhone",
     description:
-      "Pęknięty lub uszkodzony ekran? Wymienimy go precyzyjnie, używając wysokiej jakości wyświetlaczy.",
+      "Profesjonalna wymiana wyświetlacza iPhone Warszawa. Pęknięty ekran iPhone? Wymienimy go precyzyjnie z użyciem oryginalnych lub wysokiej jakości części zamiennych.",
     slug: "screen",
   },
   {
     icon: Battery,
-    title: "Wymiana baterii",
+    title: "Wymiana baterii iPhone",
     description:
-      "Szybka wymiana baterii z użyciem oryginalnych lub wysokiej jakości części zamiennych. Twój iPhone znów będzie działał jak nowy.",
+      "Szybka wymiana baterii iPhone Warszawa. Używamy oryginalnych baterii Apple lub wysokiej jakości zamienników. Twój iPhone znów będzie działał jak nowy.",
     slug: "battery",
   },
   {
@@ -148,7 +148,11 @@ const Services = () => {
     <section id="services" className="py-16 md:py-24 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Nasze Usługi</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Usługi Serwisu iPhone Warszawa</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Profesjonalna naprawa iPhone w Warszawie - wymiana baterii iPhone, 
+            wymiana wyświetlacza iPhone i wszystkie inne usługi serwisowe
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
