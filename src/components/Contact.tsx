@@ -36,7 +36,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">WhatsApp</p>
-                  <p className="font-medium">+48 537 728 008</p>
+                  <p className="font-medium">+48 791 473 583</p>
                 </div>
               </div>
 
