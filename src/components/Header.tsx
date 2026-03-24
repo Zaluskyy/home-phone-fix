@@ -82,12 +82,12 @@ const Header = () => {
             >
               Usługi
             </button>
-            {/* <button
-              onClick={() => scrollToSection("contact")}
+            <button
+              onClick={() => navigate("/blog")}
               className="text-foreground hover:text-primary transition-colors"
             >
-              Contact
-            </button> */}
+              Blog
+            </button>
             <Button onClick={() => scrollToSection("contact")}>Kontakt</Button>
           </nav>
 
