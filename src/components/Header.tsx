@@ -116,12 +116,15 @@ const Header = () => {
               >
                 Usługi
               </button>
-              {/* <button
-                onClick={() => scrollToSection("contact")}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  navigate("/blog");
+                }}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
-                Kontakt
-              </button> */}
+                Blog
+              </button>
               <Button
                 onClick={() => scrollToSection("contact")}
                 className="w-full"
