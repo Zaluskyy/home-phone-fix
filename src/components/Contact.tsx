@@ -60,8 +60,7 @@ const Contact = () => {
 
               <div className="pt-4 border-t border-border">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Uwaga:</strong> Naprawy wykonywane są w domu. Adres
-                  udostępniany jest po rezerwacji ze względu na prywatność.
+                  <strong>Uwaga:</strong> Naprawy realizujemy w naszych domowych punktach serwisowych w <strong>Warszawie (dzielnice Mokotów i Praga)</strong>. Dokładny adres udostępniamy po rezerwacji ze względu na prywatność.
                 </p>
               </div>
             </CardContent>
