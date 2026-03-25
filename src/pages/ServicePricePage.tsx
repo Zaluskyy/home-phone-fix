@@ -17,6 +17,14 @@ import { useEffect } from "react";
 
 // --- Import Danych i Definicji Typów z pricingData.tsx ---
 import { repairsPricingData } from "@/data/PricingData";
+import { serviceSeoContent } from "@/data/serviceSeoContent";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { CheckCircle } from "lucide-react";
 
 // Ponowne definicje typów z pliku pricingData.tsx (dla bezpiecznego dostępu)
 interface TwoColumnPrices {
