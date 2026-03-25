@@ -17,6 +17,14 @@ import { useEffect } from "react";
 
 // --- Import Danych i Definicji Typów z pricingData.tsx ---
 import { repairsPricingData } from "@/data/PricingData";
+import { serviceSeoContent } from "@/data/serviceSeoContent";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { CheckCircle } from "lucide-react";
 
 // Ponowne definicje typów z pliku pricingData.tsx (dla bezpiecznego dostępu)
 interface TwoColumnPrices {
@@ -163,6 +171,7 @@ const ServicePricePage = () => {
 
   // Użyj service.title dla nagłówków
   const { title, hasTwoColumns, seoTitle, seoDescription, seoKeywords } = service;
+  const seoContent = serviceSeoContent[serviceSlug || ""];
 
   return (
     <div className="min-h-screen">
@@ -261,6 +270,76 @@ const ServicePricePage = () => {
             Wszystkie ceny zawierają robociznę i gwarancję. Skontaktuj się z
             nami, aby uzyskać więcej informacji.
           </p>
+
+          {seoContent && (
+            <div className="max-w-4xl mx-auto mt-16 space-y-16">
+              {/* SEO Intro */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  {title} — Profesjonalny Serwis iPhone Warszawa
+                </h2>
+                <p className="text-muted-foreground leading-relaxed text-base">
+                  {seoContent.intro}
+                </p>
+              </div>
+
+              {/* Why Choose Us */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Dlaczego warto wybrać nasz serwis?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {seoContent.whyUs.map((point, i) => (
+                    <Card key={i} className="shadow-card">
+                      <CardContent className="flex items-start gap-3 pt-6">
+                        <CheckCircle className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                        <p className="text-sm leading-relaxed">{point}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Repair Process */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Jak wygląda proces naprawy?
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {seoContent.processSteps.map((step, i) => (
+                    <Card key={i} className="shadow-card text-center">
+                      <CardContent className="pt-6">
+                        <div className="w-10 h-10 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
+                          {i + 1}
+                        </div>
+                        <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
+                        <p className="text-sm text-muted-foreground">{step.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* FAQ */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
+                  Najczęściej zadawane pytania
+                </h2>
+                <Accordion type="single" collapsible className="w-full">
+                  {seoContent.faqs.map((faq, i) => (
+                    <AccordionItem key={i} value={`faq-${i}`}>
+                      <AccordionTrigger className="text-left text-base">
+                        {faq.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground leading-relaxed">
+                        {faq.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
