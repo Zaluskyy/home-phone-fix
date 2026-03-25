@@ -66,6 +66,7 @@ const iphoneModels = [
   "iPhone 16 Plus",
   "iPhone 16 Pro",
   "iPhone 16 Pro Max",
+  "Android",
 ];
 
 const services = [

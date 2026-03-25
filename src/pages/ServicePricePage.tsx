@@ -56,6 +56,7 @@ const iphoneModels = [
   "iPhone 16 Plus",
   "iPhone 16 Pro",
   "iPhone 16 Pro Max",
+  "Android",
 ];
 
 const serviceInfo: Record<string, { title: string; hasTwoColumns: boolean; seoTitle: string; seoDescription: string; seoKeywords: string }> = {
