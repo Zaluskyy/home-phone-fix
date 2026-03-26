@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-icuro.png";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const handleScrollToSection = useScrollToSection();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,27 +30,27 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const scrollToSection = (id: string) => {
-    setIsMobileMenuOpen(false);
+  // const scrollToSection = (id: string) => {
+  //   setIsMobileMenuOpen(false);
 
-    if (location.pathname === "/") {
-      // Already on homepage, just scroll
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      // On a subpage, navigate to homepage first
-      navigate("/");
-      // Wait for navigation and then scroll
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    }
-  };
+  //   if (location.pathname === "/") {
+  //     // Already on homepage, just scroll
+  //     const element = document.getElementById(id);
+  //     if (element) {
+  //       element.scrollIntoView({ behavior: "smooth" });
+  //     }
+  //   } else {
+  //     // On a subpage, navigate to homepage first
+  //     navigate("/");
+  //     // Wait for navigation and then scroll
+  //     setTimeout(() => {
+  //       const element = document.getElementById(id);
+  //       if (element) {
+  //         element.scrollIntoView({ behavior: "smooth" });
+  //       }
+  //     }, 100);
+  //   }
+  // };
 
   return (
     <header
@@ -71,13 +73,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection("home")}
+              onClick={() => handleScrollToSection("home")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Strona główna
             </button>
             <button
-              onClick={() => scrollToSection("services")}
+              onClick={() => handleScrollToSection("services")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Usługi
@@ -88,7 +90,7 @@ const Header = () => {
             >
               Blog
             </button>
-            <Button onClick={() => scrollToSection("contact")}>Kontakt</Button>
+            <Button onClick={() => handleScrollToSection("contact")}>Kontakt</Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -105,13 +107,13 @@ const Header = () => {
           <nav className="md:hidden py-4 border-t border-border animate-fade-in ">
             <div className="flex flex-col gap-4">
               <button
-                onClick={() => scrollToSection("home")}
+                onClick={() => handleScrollToSection("home")}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
                 Strona główna
               </button>
               <button
-                onClick={() => scrollToSection("services")}
+                onClick={() => handleScrollToSection("services")}
                 className="text-left text-foreground hover:text-primary transition-colors py-2"
               >
                 Usługi
@@ -126,7 +128,7 @@ const Header = () => {
                 Blog
               </button>
               <Button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => handleScrollToSection("contact")}
                 className="w-full"
               >
                 Kontakt

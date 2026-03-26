@@ -3,12 +3,13 @@ import { FaTiktok, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo-icuro.png";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const quickLinks = [
-  { label: "Strona główna", to: "/" },
-  { label: "O nas", to: "/#about" },
-  { label: "Kontakt", to: "/#contact" },
-  { label: "Blog", to: "/blog" },
+  { id: 1, label: "Strona główna", to: "home" },
+  { id: 2, label: "O nas", to: "services" },
+  { id: 3, label: "Kontakt", to: "contact" },
+  { id: 4, label: "Blog", to: "/blog" },
 ];
 
 const serviceLinks = [
@@ -24,6 +25,7 @@ const serviceLinks = [
 ];
 
 const Footer = () => {
+  const handleScrollToSection = useScrollToSection();
   return (
     <footer className="bg-gradient-subtle border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -51,14 +53,14 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <nav aria-label="Na skróty">
-            <h3 className="font-semibold mb-4">Na skróty</h3>
+          <nav aria-label="Nawigacja">
+            <h3 className="font-semibold mb-4">Nawigacja</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <li key={link.id}>
+                  <button onClick={()=>handleScrollToSection(link.to)} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {link.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
