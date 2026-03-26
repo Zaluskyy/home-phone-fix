@@ -85,7 +85,7 @@ const Header = () => {
               Usługi
             </button>
             <button
-              onClick={() => navigate("/blog")}
+              onClick={() => handleScrollToSection("/blog")}
               className="text-foreground hover:text-primary transition-colors"
             >
               Blog
