@@ -74,11 +74,14 @@ const BlogPost = () => {
             {post.title}
           </h1>
 
-          <div className="prose prose-lg max-w-none text-foreground/90 space-y-4">
-            {post.content.split("\n\n").filter(Boolean).map((paragraph, idx) => (
-              <p key={idx}>{paragraph.trim()}</p>
-            ))}
-          </div>
+          <div 
+            className="max-w-none text-foreground/90
+              [&>h2]:text-2xl [&>h2]:md:text-3xl [&>h2]:font-bold [&>h2]:text-foreground [&>h2]:mt-10 [&>h2]:mb-4
+              [&>p]:mb-5 [&>p]:leading-relaxed
+              [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>li]:mb-2
+              [&>strong]:font-bold"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </article>
 
         {/* Related Posts */}
