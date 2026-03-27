@@ -81,63 +81,63 @@ const services = [
     title: "Wymiana wyświetlacza iPhone",
     description:
       "Profesjonalna wymiana wyświetlacza iPhone Warszawa. Pęknięty ekran iPhone? Wymienimy go precyzyjnie z użyciem oryginalnych lub wysokiej jakości części zamiennych.",
-    slug: "screen",
+    slug: "wymiana-wyswietlacza",
   },
   {
     icon: Battery,
     title: "Wymiana baterii iPhone",
     description:
       "Szybka wymiana baterii iPhone Warszawa. Używamy oryginalnych baterii Apple lub wysokiej jakości zamienników. Twój iPhone znów będzie działał jak nowy.",
-    slug: "battery",
+    slug: "wymiana-baterii",
   },
   {
     icon: Volume2,
     title: "Wymiana głośnika",
     description:
       "Przywracamy czysty dźwięk dzięki profesjonalnej wymianie głośnika.",
-    slug: "speaker",
+    slug: "wymiana-glosnika",
   },
   {
     icon: Plug,
     title: "Wymiana złącza ładowania",
     description:
       "Naprawimy problemy z ładowaniem, wykonując profesjonalną wymianę portu ładowania.",
-    slug: "chargingPort",
+    slug: "wymiana-zlacza-ladowania",
   },
   {
     icon: CameraOff,
     title: "Wymiana szkiełka aparatu",
     description:
       "Wymienimy pęknięte szkiełko aparatu, aby chronić obiektyw i przywrócić pełną jakość zdjęć.",
-    slug: "cameraGlass",
+    slug: "wymiana-szkielka-aparatu",
   },
   {
     icon: Camera,
     title: "Wymiana aparatu",
     description:
       "Masz problemy z tylnym aparatem? Wymienimy go, aby Twoje zdjęcia znów były perfekcyjne.",
-    slug: "camera",
+    slug: "wymiana-aparatu",
   },
   {
     icon: Power,
     title: "Naprawa przycisku zasilania",
     description:
       "Naprawimy niesprawny przycisk zasilania dzięki profesjonalnej usłudze serwisowej.",
-    slug: "powerButton",
+    slug: "naprawa-przycisku-zasilania",
   },
   {
     icon: Volume2,
     title: "Wymiana mikrofonu",
     description:
       "Przywrócimy czysty i wyraźny dźwięk dzięki wymianie mikrofonu.",
-    slug: "microphone",
+    slug: "wymiana-mikrofonu",
   },
   {
     icon: Package,
     title: "Wymiana korpusu",
     description:
       "Wymienimy uszkodzony korpus, dzięki czemu Twój iPhone będzie wyglądał jak nowy.",
-    slug: "housing",
+    slug: "wymiana-korpusu",
   },
 ];
 
