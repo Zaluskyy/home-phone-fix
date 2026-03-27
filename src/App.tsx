@@ -24,8 +24,8 @@ const App = () => (
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/price/:serviceSlug" element={<ServicePricePage />} />
-          <Route path="/repairs-pricing" element={<RepairsPricing />} />
+          <Route path="/uslugi/:serviceSlug" element={<ServicePricePage />} />
+          <Route path="/cennik-napraw" element={<RepairsPricing />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/serwis-iphone-mokotow" element={<Mokotow />} />

@@ -13,15 +13,15 @@ const quickLinks = [
 ];
 
 const serviceLinks = [
-  { label: "Wymiana wyświetlacza", to: "/price/screen" },
-  { label: "Wymiana baterii", to: "/price/battery" },
-  { label: "Wymiana głośnika", to: "/price/speaker" },
-  { label: "Wymiana złącza ładowania", to: "/price/chargingPort" },
-  { label: "Wymiana szkiełka aparatu", to: "/price/cameraGlass" },
-  { label: "Wymiana aparatu", to: "/price/camera" },
-  { label: "Naprawa przycisku zasilania", to: "/price/powerButton" },
-  { label: "Wymiana mikrofonu", to: "/price/microphone" },
-  { label: "Wymiana korpusu", to: "/price/housing" },
+  { label: "Wymiana wyświetlacza", to: "/uslugi/wymiana-wyswietlacza" },
+  { label: "Wymiana baterii", to: "/uslugi/wymiana-baterii" },
+  { label: "Wymiana głośnika", to: "/uslugi/wymiana-glosnika" },
+  { label: "Wymiana złącza ładowania", to: "/uslugi/wymiana-zlacza-ladowania" },
+  { label: "Wymiana szkiełka aparatu", to: "/uslugi/wymiana-szkielka-aparatu" },
+  { label: "Wymiana aparatu", to: "/uslugi/wymiana-aparatu" },
+  { label: "Naprawa przycisku zasilania", to: "/uslugi/naprawa-przycisku-zasilania" },
+  { label: "Wymiana mikrofonu", to: "/uslugi/wymiana-mikrofonu" },
+  { label: "Wymiana korpusu", to: "/uslugi/wymiana-korpusu" },
 ];
 
 const Footer = () => {

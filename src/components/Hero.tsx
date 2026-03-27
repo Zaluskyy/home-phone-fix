@@ -50,7 +50,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="secondary"
-              onClick={() => navigate("/repairs-pricing")}
+              onClick={() => navigate("/cennik-napraw")}
               className="border border-black"
             >
               <ListOrdered className="mr-2 h-5 w-5" />
