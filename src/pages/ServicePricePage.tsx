@@ -133,18 +133,34 @@ const serviceInfo: Record<string, { title: string; hasTwoColumns: boolean; seoTi
   },
 };
 
+// Mapping from Polish URL slugs to internal service IDs
+const urlSlugToServiceId: Record<string, string> = {
+  "wymiana-wyswietlacza": "screen",
+  "wymiana-baterii": "battery",
+  "wymiana-glosnika": "speaker",
+  "wymiana-zlacza-ladowania": "chargingPort",
+  "wymiana-szkielka-aparatu": "cameraGlass",
+  "wymiana-aparatu": "camera",
+  "naprawa-przycisku-zasilania": "powerButton",
+  "wymiana-mikrofonu": "microphone",
+  "wymiana-korpusu": "housing",
+};
+
 const ServicePricePage = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
   const navigate = useNavigate();
   const defaultPrice = "Zapytaj";
+
+  // Resolve Polish URL slug to internal service ID
+  const internalId = urlSlugToServiceId[serviceSlug || ""] || serviceSlug || "";
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [serviceSlug]);
 
   // Sprawdzenie, czy usługa istnieje w definicji oraz w danych cenowych
-  const service = serviceInfo[serviceSlug || ""];
-  const servicePrices = repairsPricingData[serviceSlug || ""];
+  const service = serviceInfo[internalId];
+  const servicePrices = repairsPricingData[internalId];
 
   if (!service || !servicePrices) {
     return (
@@ -171,7 +187,7 @@ const ServicePricePage = () => {
 
   // Użyj service.title dla nagłówków
   const { title, hasTwoColumns, seoTitle, seoDescription, seoKeywords } = service;
-  const seoContent = serviceSeoContent[serviceSlug || ""];
+  const seoContent = serviceSeoContent[internalId];
 
   return (
     <div className="min-h-screen">
