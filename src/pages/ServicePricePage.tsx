@@ -202,10 +202,9 @@ const ServicePricePage = () => {
           </Button>
 
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">{title} Warszawa - Cennik</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">{title} Warszawa</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Cennik {title.toLowerCase()} dla wszystkich modeli iPhone w Warszawie. 
-              Profesjonalny serwis iPhone z gwarancją i szybką realizacją.
+              Cennik {title.toLowerCase()} dla wszystkich modeli iPhone w Warszawie.
             </p>
           </div>
 
