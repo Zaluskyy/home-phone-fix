@@ -9,7 +9,7 @@ const quickLinks = [
   { id: 1, label: "Strona główna", to: "home" },
   { id: 2, label: "O nas", to: "services" },
   { id: 3, label: "Kontakt", to: "contact" },
-  { id: 4, label: "Blog", to: "/blog" },
+  // { id: 4, label: "Blog", to: "/blog" },
 ];
 
 const serviceLinks = [
@@ -63,6 +63,11 @@ const Footer = () => {
                   </button>
                 </li>
               ))}
+              <li key={"blog"}>
+                  <Link to={"/blog"} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {"Blog"}
+                  </Link>
+                </li>
             </ul>
           </nav>
 
