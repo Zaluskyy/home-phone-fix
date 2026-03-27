@@ -1,12 +1,17 @@
 import Header from "@/components/Header";
 import Services from "@/components/Services";
 import WhyChoose from "@/components/WhyChoose";
-import HomeFAQ from "@/components/HomeFAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Phone, ListOrdered } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroImage from "@/assets/hero-repair.jpg";
 import { useNavigate } from "react-router-dom";
 
@@ -92,7 +97,49 @@ const Praga = () => {
 
       <Services />
       <WhyChoose />
-      <HomeFAQ />
+
+      {/* FAQ - Praga */}
+      <section id="faq" className="py-16 md:py-24 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Najczęściej zadawane pytania - Serwis iPhone Praga
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Odpowiedzi na pytania dotyczące naprawy iPhone na Pradze
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-0">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium">
+                  Czy prowadzicie serwis Apple po prawej stronie Wisły?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Tak! Posiadamy drugi punkt serwisowy zlokalizowany na warszawskiej Pradze, co jest idealnym rozwiązaniem dla mieszkańców Pragi Północ, Pragi Południe, Targówka czy Gocławia.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium">
+                  Jak umówić się na naprawę iPhone na Pradze?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Wystarczy do nas zadzwonić lub napisać na WhatsApp. Ustalimy dogodny termin i przekażemy dokładne wskazówki dojazdu do naszego praskiego punktu serwisowego.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium">
+                  Czy jakość naprawy na Pradze jest taka sama jak w punkcie głównym?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Zdecydowanie tak. Obaj nasi serwisanci posiadają to samo wieloletnie doświadczenie i korzystają z identycznych, najwyższej jakości części (oryginałów oraz sprawdzonych zamienników premium).
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       <Contact />
       <Footer />
     </div>
