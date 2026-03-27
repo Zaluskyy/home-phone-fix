@@ -80,6 +80,23 @@ const Footer = () => {
             </ul>
           </nav>
 
+          {/* Locations */}
+          <div className="mb-8 lg:mb-0">
+            <h3 className="font-semibold mb-4">Nasze Lokalizacje</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/serwis-iphone-mokotow" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Serwis iPhone Mokotów
+                </Link>
+              </li>
+              <li>
+                <Link to="/serwis-iphone-praga" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  Serwis iPhone Praga
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h3 className="font-semibold mb-4">Dane Kontaktowe</h3>
