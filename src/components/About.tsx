@@ -8,7 +8,7 @@ const About = () => {
             Naprawiamy iPhone’y profesjonalnie w swoim serwisie domowym w
             Warszawie, oferując szybkie terminy realizacji, przystępne ceny oraz
             wysokiej jakości podzespoły. Wykonujemy naprawy z użyciem zarówno
-            oryginalnych części, jak i wysokiej klasy zamienników — tak, abyś
+            oryginalnych części, jak i wysokiej klasy zamienników - tak, abyś
             zawsze otrzymał najlepszą jakość w rozsądnej cenie. Dzięki
             doświadczeniu i dbałości o szczegóły Twój telefon jest w dobrych
             rękach.

@@ -55,7 +55,7 @@ const Praga = () => {
             </p>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Lokalny serwis iPhone na warszawskiej Pradze. Naprawiamy ekrany, baterie,
-              złącza ładowania i inne usterki — szybko, profesjonalnie i w przystępnych cenach.
+              złącza ładowania i inne usterki - szybko, profesjonalnie i w przystępnych cenach.
               Twój iPhone w dobrych rękach, w Twojej dzielnicy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -88,7 +88,7 @@ const Praga = () => {
               Nasz serwis działa na warszawskiej Pradze, zapewniając mieszkańcom prawobrzeżnej
               Warszawy szybki i wygodny dostęp do profesjonalnych napraw iPhone. Używamy
               oryginalnych części Apple oraz sprawdzonych zamienników najwyższej jakości.
-              Nie musisz jechać na drugi koniec miasta — naprawimy Twojego iPhone'a lokalnie,
+              Nie musisz jechać na drugi koniec miasta - naprawimy Twojego iPhone'a lokalnie,
               blisko Twojego domu.
             </p>
           </div>

@@ -37,7 +37,7 @@ const Hero = () => {
             Szybko, Niezawodnie, W rozsądnej cenie
           </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Naprawiamy iPhone’y z dbałością o każdy detal — ekrany, baterie,
+            Naprawiamy iPhone’y z dbałością o każdy detal - ekrany, baterie,
             złącza, diagnostyka, a także bardziej skomplikowane usterki.
             Oferujemy wysoką jakość i szybkie terminy.
           </p>

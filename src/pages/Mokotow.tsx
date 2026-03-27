@@ -55,7 +55,7 @@ const Mokotow = () => {
             </p>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Lokalny serwis iPhone na warszawskim Mokotowie. Naprawiamy ekrany, baterie,
-              złącza ładowania i inne usterki — szybko, profesjonalnie i w przystępnych cenach.
+              złącza ładowania i inne usterki - szybko, profesjonalnie i w przystępnych cenach.
               Twój iPhone w dobrych rękach, blisko Ciebie.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -88,7 +88,7 @@ const Mokotow = () => {
               Działamy na warszawskim Mokotowie, oferując mieszkańcom dzielnicy wygodny dostęp
               do profesjonalnego serwisu iPhone. Wykonujemy naprawy z użyciem oryginalnych części
               oraz wysokiej klasy zamienników. Dzięki lokalizacji w sercu Mokotowa oszczędzasz
-              czas — szybka naprawa blisko domu, bez konieczności podróżowania przez całe miasto.
+              czas - szybka naprawa blisko domu, bez konieczności podróżowania przez całe miasto.
             </p>
           </div>
         </div>
