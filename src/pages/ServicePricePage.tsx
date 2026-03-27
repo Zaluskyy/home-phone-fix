@@ -187,7 +187,7 @@ const ServicePricePage = () => {
 
   // Użyj service.title dla nagłówków
   const { title, hasTwoColumns, seoTitle, seoDescription, seoKeywords } = service;
-  const seoContent = serviceSeoContent[serviceSlug || ""];
+  const seoContent = serviceSeoContent[internalId];
 
   return (
     <div className="min-h-screen">
