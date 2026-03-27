@@ -28,7 +28,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                   <MessageCircle className="h-5 w-5 text-primary" />
                 </div>
@@ -36,7 +36,7 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground">WhatsApp</p>
                   <p className="font-medium">+48 791 473 583</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">

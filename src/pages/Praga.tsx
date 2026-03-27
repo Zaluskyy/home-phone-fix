@@ -124,7 +124,7 @@ const Praga = () => {
                   Jak umówić się na naprawę iPhone na Pradze?
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
-                  Wystarczy do nas zadzwonić lub napisać na WhatsApp. Ustalimy dogodny termin i przekażemy dokładne wskazówki dojazdu do naszego praskiego punktu serwisowego.
+                  Wystarczy do nas zadzwonić. Ustalimy dogodny termin i przekażemy dokładne wskazówki dojazdu do naszego praskiego punktu serwisowego.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
