@@ -1,12 +1,17 @@
 import Header from "@/components/Header";
 import Services from "@/components/Services";
 import WhyChoose from "@/components/WhyChoose";
-import HomeFAQ from "@/components/HomeFAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Phone, ListOrdered } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroImage from "@/assets/hero-repair.jpg";
 import { useNavigate } from "react-router-dom";
 
@@ -91,7 +96,49 @@ const Mokotow = () => {
 
       <Services />
       <WhyChoose />
-      <HomeFAQ />
+
+      {/* FAQ - Mokotów */}
+      <section id="faq" className="py-16 md:py-24 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Najczęściej zadawane pytania - Serwis iPhone Mokotów
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Odpowiedzi na pytania dotyczące naprawy iPhone na Mokotowie
+            </p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-0">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium">
+                  Gdzie dokładnie naprawiacie iPhone'y na Mokotowie?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Nasz punkt serwisowy znajduje się na warszawskim Mokotowie. Ze względu na domowy charakter serwisu, dokładny adres podajemy po umówieniu wizyty. Zapewniamy szybki i bardzo dyskretny odbiór sprzętu.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium">
+                  Czy muszę długo czekać na naprawę na Mokotowie?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Większość standardowych napraw (np. wymiana baterii czy ekranu) wykonujemy na poczekaniu lub w ciągu 1-2 godzin. Nie musisz rozstawać się ze swoim iPhonem na długo.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium">
+                  Czy przyjmujecie telefony z innych dzielnic, np. Ursynowa?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Oczywiście! Nasza lokalizacja na Mokotowie jest bardzo dogodna również dla mieszkańców Ursynowa, Wilanowa czy Śródmieścia. Zapraszamy do kontaktu.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
+      </section>
+
       <Contact />
       <Footer />
     </div>
