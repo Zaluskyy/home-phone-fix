@@ -102,6 +102,15 @@ const RepairsPricing = () => {
         title="Cennik Napraw iPhone Warszawa - Wymiana Baterii i Wyświetlacza | iCuro"
         description="Pełny cennik napraw iPhone w Warszawie. Wymiana baterii iPhone, wymiana wyświetlacza iPhone, naprawa iPhone wszystkich modeli. Przejrzyste ceny, oryginalne części, gwarancja."
         keywords="cennik napraw iPhone Warszawa, cena wymiany baterii iPhone, cena wymiany wyświetlacza iPhone, naprawa iPhone Warszawa ceny, serwis iPhone Warszawa cennik"
+        canonicalUrl="/cennik-napraw"
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
+            { "@type": "ListItem", "position": 2, "name": "Cennik napraw", "item": "https://www.icuro.pl/cennik-napraw" }
+          ]
+        }}
       />
       <Header />
 

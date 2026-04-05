@@ -5,9 +5,13 @@ interface SEOProps {
   title: string;
   description: string;
   keywords?: string;
+  canonicalUrl?: string;
+  schemaData?: Record<string, any> | Record<string, any>[];
 }
 
-const SEO = ({ title, description, keywords }: SEOProps) => {
+const BASE_URL = "https://www.icuro.pl";
+
+const SEO = ({ title, description, keywords, canonicalUrl, schemaData }: SEOProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -59,7 +63,43 @@ const SEO = ({ title, description, keywords }: SEOProps) => {
     if (twitterDescription) {
       twitterDescription.setAttribute("content", description);
     }
-  }, [title, description, keywords, location]);
+
+    // Canonical URL
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalUrl !== undefined) {
+      const fullUrl = `${BASE_URL}${canonicalUrl.startsWith("/") ? "" : "/"}${canonicalUrl}`.replace(/([^:]\/)\/+/g, "$1");
+      if (canonicalLink) {
+        canonicalLink.setAttribute("href", fullUrl);
+      } else {
+        canonicalLink = document.createElement("link");
+        canonicalLink.setAttribute("rel", "canonical");
+        canonicalLink.setAttribute("href", fullUrl);
+        document.head.appendChild(canonicalLink);
+      }
+    } else {
+      canonicalLink?.remove();
+    }
+
+    // Schema.org JSON-LD
+    let schemaScript = document.getElementById("seo-schema") as HTMLScriptElement | null;
+    if (schemaData) {
+      if (!schemaScript) {
+        schemaScript = document.createElement("script");
+        schemaScript.setAttribute("type", "application/ld+json");
+        schemaScript.setAttribute("id", "seo-schema");
+        document.head.appendChild(schemaScript);
+      }
+      schemaScript.textContent = JSON.stringify(schemaData);
+    } else {
+      schemaScript?.remove();
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.querySelector('link[rel="canonical"]')?.remove();
+      document.getElementById("seo-schema")?.remove();
+    };
+  }, [title, description, keywords, location, canonicalUrl, schemaData]);
 
   return null;
 };

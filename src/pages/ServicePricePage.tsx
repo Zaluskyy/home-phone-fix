@@ -188,10 +188,54 @@ const ServicePricePage = () => {
   // Użyj service.title dla nagłówków
   const { title, hasTwoColumns, seoTitle, seoDescription, seoKeywords } = service;
   const seoContent = serviceSeoContent[internalId];
+  const canonicalPath = `/uslugi/${serviceSlug}`;
+
+  const serviceSchemaData: Record<string, any>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": `${title} Warszawa`,
+      "description": seoDescription,
+      "provider": {
+        "@type": "MobilePhoneRepair",
+        "name": "iCuro Serwis iPhone Warszawa",
+        "telephone": "+48 791 473 583",
+        "email": "serwis@icuro.pl",
+        "address": { "@type": "PostalAddress", "addressLocality": "Warszawa" }
+      },
+      "areaServed": { "@type": "City", "name": "Warszawa" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "PLN",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
+        { "@type": "ListItem", "position": 2, "name": title, "item": `https://www.icuro.pl${canonicalPath}` }
+      ]
+    }
+  ];
+
+  // Add FAQ schema if seoContent has FAQs
+  if (seoContent?.faqs?.length) {
+    serviceSchemaData.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": seoContent.faqs.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+      }))
+    });
+  }
 
   return (
     <div className="min-h-screen">
-      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} />
+      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} canonicalUrl={canonicalPath} schemaData={serviceSchemaData} />
       <Header />
 
       <section className="py-24 md:py-32 bg-background">

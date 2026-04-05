@@ -32,6 +32,15 @@ const Blog = () => {
         title="Blog — Porady i aktualności | iCuro Serwis iPhone Warszawa"
         description="Przeczytaj nasze artykuły o naprawach iPhone, poradach serwisowych i nowościach ze świata Apple. Blog iCuro — serwis iPhone Warszawa."
         keywords="blog serwis iPhone, porady naprawa iPhone, wymiana baterii iPhone blog, serwis iPhone Warszawa"
+        canonicalUrl="/blog"
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.icuro.pl/blog" }
+          ]
+        }}
       />
       <Header />
       <main className="pt-24 pb-16">

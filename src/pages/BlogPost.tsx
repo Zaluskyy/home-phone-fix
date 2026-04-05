@@ -33,6 +33,16 @@ const BlogPost = () => {
         title={`${post.title} | iCuro Blog`}
         description={post.excerpt}
         keywords="naprawa iPhone Warszawa, serwis iPhone, blog iPhone"
+        canonicalUrl={`/blog/${post.slug}`}
+        schemaData={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.icuro.pl/blog" },
+            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.icuro.pl/blog/${post.slug}` }
+          ]
+        }}
       />
       <Header />
       <main className="pt-20">

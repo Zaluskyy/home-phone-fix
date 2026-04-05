@@ -31,6 +31,37 @@ const Praga = () => {
         title="Serwis iPhone Praga Warszawa - Naprawa iPhone na Pradze | iCuro"
         description="Profesjonalny serwis iPhone na Pradze w Warszawie. Wymiana baterii, wyświetlacza i naprawa Apple. Szybka realizacja, gwarancja jakości. Lokalny serwis domowy na Pradze."
         keywords="serwis iPhone Praga, naprawa iPhone Praga, wymiana baterii iPhone Praga, wymiana wyświetlacza iPhone Praga, serwis Apple Praga Warszawa"
+        canonicalUrl="/serwis-iphone-praga"
+        schemaData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "MobilePhoneRepair",
+            "name": "iCuro Serwis iPhone Warszawa — Praga",
+            "url": "https://www.icuro.pl/serwis-iphone-praga",
+            "telephone": "+48 791 473 583",
+            "email": "serwis@icuro.pl",
+            "address": { "@type": "PostalAddress", "addressLocality": "Warszawa", "addressRegion": "Praga" },
+            "priceRange": "$$",
+            "openingHours": "Mo-Fr 09:00-17:00"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
+              { "@type": "ListItem", "position": 2, "name": "Serwis iPhone Praga", "item": "https://www.icuro.pl/serwis-iphone-praga" }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Czy prowadzicie serwis Apple po prawej stronie Wisły?", "acceptedAnswer": { "@type": "Answer", "text": "Tak! Posiadamy drugi punkt serwisowy zlokalizowany na warszawskiej Pradze, co jest idealnym rozwiązaniem dla mieszkańców Pragi Północ, Pragi Południe, Targówka czy Gocławia." } },
+              { "@type": "Question", "name": "Jak umówić się na naprawę iPhone na Pradze?", "acceptedAnswer": { "@type": "Answer", "text": "Wystarczy do nas zadzwonić. Ustalimy dogodny termin i przekażemy dokładne wskazówki dojazdu do naszego praskiego punktu serwisowego." } },
+              { "@type": "Question", "name": "Czy jakość naprawy na Pradze jest taka sama jak w punkcie głównym?", "acceptedAnswer": { "@type": "Answer", "text": "Zdecydowanie tak. Obaj nasi serwisanci posiadają to samo wieloletnie doświadczenie i korzystają z identycznych, najwyższej jakości części (oryginałów oraz sprawdzonych zamienników premium)." } }
+            ]
+          }
+        ]}
       />
       <Header />
 
