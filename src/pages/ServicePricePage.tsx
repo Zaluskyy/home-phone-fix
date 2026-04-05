@@ -235,7 +235,7 @@ const ServicePricePage = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} />
+      <SEO title={seoTitle} description={seoDescription} keywords={seoKeywords} canonicalUrl={canonicalPath} schemaData={serviceSchemaData} />
       <Header />
 
       <section className="py-24 md:py-32 bg-background">
