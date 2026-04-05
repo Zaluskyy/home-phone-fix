@@ -17,7 +17,9 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="pt-24 pb-16 container mx-auto px-4 text-center">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Nie znaleziono artykułu</h1>
+          <h1 className="text-2xl font-bold text-foreground mb-4">
+            Nie znaleziono artykułu
+          </h1>
           <Button onClick={() => navigate("/blog")}>Wróć do bloga</Button>
         </div>
         <Footer />
@@ -34,15 +36,45 @@ const BlogPost = () => {
         description={post.excerpt}
         keywords="naprawa iPhone Warszawa, serwis iPhone, blog iPhone"
         canonicalUrl={`/blog/${post.slug}`}
-        schemaData={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.icuro.pl/blog" },
-            { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://www.icuro.pl/blog/${post.slug}` }
-          ]
-        }}
+        schemaData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Strona główna",
+                item: "https://www.icuro.pl",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Blog",
+                item: "https://www.icuro.pl/blog",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `https://www.icuro.pl/blog/${post.slug}`,
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            image: post.image.startsWith("http")
+              ? post.image
+              : `https://www.icuro.pl${post.image}`,
+            datePublished: post.date,
+            author: {
+              "@type": "Organization",
+              name: "iCuro Serwis iPhone",
+            },
+          },
+        ]}
       />
       <Header />
       <main className="pt-20">
@@ -84,7 +116,7 @@ const BlogPost = () => {
             {post.title}
           </h1>
 
-          <div 
+          <div
             className="max-w-none text-foreground/90
               [&>h2]:text-2xl [&>h2]:md:text-3xl [&>h2]:font-bold [&>h2]:text-foreground [&>h2]:mt-10 [&>h2]:mb-4
               [&>p]:mb-5 [&>p]:leading-relaxed
