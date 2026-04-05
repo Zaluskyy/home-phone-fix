@@ -31,6 +31,37 @@ const Mokotow = () => {
         title="Serwis iPhone Mokotów Warszawa - Naprawa iPhone na Mokotowie | iCuro"
         description="Profesjonalny serwis iPhone na Mokotowie w Warszawie. Wymiana baterii, wyświetlacza i naprawa iPhone. Szybka realizacja, gwarancja jakości. Lokalny serwis domowy na Mokotowie."
         keywords="serwis iPhone Mokotów, naprawa iPhone Mokotów, wymiana baterii iPhone Mokotów, wymiana wyświetlacza iPhone Mokotów, serwis Apple Mokotów Warszawa"
+        canonicalUrl="/serwis-iphone-mokotow"
+        schemaData={[
+          {
+            "@context": "https://schema.org",
+            "@type": "MobilePhoneRepair",
+            "name": "iCuro Serwis iPhone Warszawa — Mokotów",
+            "url": "https://www.icuro.pl/serwis-iphone-mokotow",
+            "telephone": "+48 791 473 583",
+            "email": "serwis@icuro.pl",
+            "address": { "@type": "PostalAddress", "addressLocality": "Warszawa", "addressRegion": "Mokotów" },
+            "priceRange": "$$",
+            "openingHours": "Mo-Fr 09:00-17:00"
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://www.icuro.pl" },
+              { "@type": "ListItem", "position": 2, "name": "Serwis iPhone Mokotów", "item": "https://www.icuro.pl/serwis-iphone-mokotow" }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Gdzie dokładnie naprawiacie iPhone'y na Mokotowie?", "acceptedAnswer": { "@type": "Answer", "text": "Nasz punkt serwisowy znajduje się na warszawskim Mokotowie. Ze względu na domowy charakter serwisu, dokładny adres podajemy po umówieniu wizyty. Zapewniamy szybki i bardzo dyskretny odbiór sprzętu." } },
+              { "@type": "Question", "name": "Czy muszę długo czekać na naprawę na Mokotowie?", "acceptedAnswer": { "@type": "Answer", "text": "Większość standardowych napraw (np. wymiana baterii czy ekranu) wykonujemy na poczekaniu lub w ciągu 1-2 godzin. Nie musisz rozstawać się ze swoim iPhonem na długo." } },
+              { "@type": "Question", "name": "Czy przyjmujecie telefony z innych dzielnic, np. Ursynowa?", "acceptedAnswer": { "@type": "Answer", "text": "Oczywiście! Nasza lokalizacja na Mokotowie jest bardzo dogodna również dla mieszkańców Ursynowa, Wilanowa czy Śródmieścia. Zapraszamy do kontaktu." } }
+            ]
+          }
+        ]}
       />
       <Header />
 
