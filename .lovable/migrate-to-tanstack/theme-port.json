@@ -1,0 +1,18 @@
+{
+  "customizations": [
+    { "token": "--radius: 0.75rem", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "custom light palette (background/foreground/card/popover/primary/secondary/muted/accent/destructive/border/input/ring)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "custom dark palette (.dark block)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--primary-glow", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--gradient-primary", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--gradient-subtle", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--shadow-card", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--shadow-glow", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--transition-smooth", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "bg-gradient-primary", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "bg-gradient-subtle", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "shadow-card", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "shadow-glow", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "container (center, padding 2rem, max 1400px)", "source": "tailwind.config.ts", "reappliedIn": "src/styles.css" }
+  ]
+}

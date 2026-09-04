@@ -1,0 +1,132 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --shadow-card: var(--shadow-card-token);
+  --shadow-glow: var(--shadow-glow-token);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(220 15% 20%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(220 15% 20%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(220 15% 20%);
+  --primary: hsl(203 89% 53%);
+  --primary-foreground: hsl(0 0% 100%);
+  --primary-glow: hsl(203 89% 70%);
+  --secondary: hsl(220 14% 96%);
+  --secondary-foreground: hsl(220 15% 20%);
+  --muted: hsl(220 14% 96%);
+  --muted-foreground: hsl(220 9% 46%);
+  --accent: hsl(203 89% 53%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(220 13% 91%);
+  --input: hsl(220 13% 91%);
+  --ring: hsl(203 89% 53%);
+
+  /* Custom design tokens */
+  --gradient-primary: linear-gradient(135deg, hsl(203 89% 53%), hsl(203 89% 70%));
+  --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 14% 98%));
+  --shadow-card-token: 0 4px 6px -1px hsl(220 15% 20% / 0.05), 0 2px 4px -2px hsl(220 15% 20% / 0.05);
+  --shadow-glow-token: 0 0 30px hsl(203 89% 53% / 0.15);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  --background: hsl(220 15% 8%);
+  --foreground: hsl(0 0% 98%);
+  --card: hsl(220 15% 12%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(220 15% 12%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(203 89% 53%);
+  --primary-foreground: hsl(0 0% 100%);
+  --primary-glow: hsl(203 89% 70%);
+  --secondary: hsl(220 15% 18%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --muted: hsl(220 15% 18%);
+  --muted-foreground: hsl(220 9% 65%);
+  --accent: hsl(203 89% 53%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 62% 50%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(220 15% 18%);
+  --input: hsl(220 15% 18%);
+  --ring: hsl(203 89% 53%);
+}
+
+/* v3 container parity: centered, 2rem padding, capped at 1400px */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* Custom gradient utilities ported from tailwind.config.ts backgroundImage */
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+@utility bg-gradient-subtle {
+  background-image: var(--gradient-subtle);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
