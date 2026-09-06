@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone, ListOrdered } from "lucide-react";
 import heroImage from "@/assets/hero-repair.jpg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router-compat";
 
 const Hero = () => {
   const navigate = useNavigate();

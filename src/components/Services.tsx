@@ -10,7 +10,7 @@ import {
   Package,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@/lib/router-compat";
 
 const services2 = [
   {

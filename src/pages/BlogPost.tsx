@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "@/lib/router-compat";
 import { blogPosts } from "@/data/blogData";
 import BlogPostCard from "@/components/BlogPostCard";
 import Header from "@/components/Header";
