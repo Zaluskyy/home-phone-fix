@@ -14,6 +14,7 @@ import {
 import { useMemo, useCallback, forwardRef, type ComponentProps, type ReactNode } from "react";
 
 // ---------- shared URL parsing ----------
+import type React from "react";
 
 function parseTo(to: string): Record<string, unknown> {
   const [beforeHash, hashStr] = (to ?? "").split("#");
