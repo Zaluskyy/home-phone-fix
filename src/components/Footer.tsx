@@ -1,7 +1,7 @@
 import { Instagram } from "lucide-react";
 import { FaTiktok, FaYoutube } from "react-icons/fa";
 import { Phone, Mail, Clock } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import logo from "@/assets/logo-icuro.png";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 
