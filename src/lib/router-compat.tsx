@@ -111,7 +111,9 @@ export function useSearchParams(): [
       next.forEach((v, k) => {
         searchObj[k] = v;
       });
-      nav({ to: live.pathname, search: searchObj as never, replace: opts?.replace });
+      const navOpts: Record<string, unknown> = { to: live.pathname, search: searchObj };
+      if (opts?.replace !== undefined) navOpts["replace"] = opts.replace;
+      nav(navOpts as never);
     },
     [nav, router],
   );
@@ -131,19 +133,14 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   { to, replace, state, children, ...rest },
   ref,
 ) {
-  const { pathname, search, hash } = parseTo(to);
+  const linkProps: Record<string, unknown> = parseTo(to);
+  if (replace !== undefined) linkProps["replace"] = replace;
+  if (state !== undefined) linkProps["state"] = state;
+  const Any = TSLink as unknown as React.ComponentType<Record<string, unknown>>;
   return (
-    <TSLink
-      ref={ref as never}
-      to={pathname as never}
-      search={search as never}
-      hash={hash}
-      replace={replace}
-      state={state as never}
-      {...((rest ?? {}) as Record<string, unknown>)}
-    >
+    <Any ref={ref} {...linkProps} {...((rest ?? {}) as Record<string, unknown>)}>
       {children}
-    </TSLink>
+    </Any>
   );
 });
 
@@ -158,16 +155,13 @@ export function Navigate({
   replace?: boolean;
   state?: unknown;
 }) {
-  return (
-    <TSNavigate
-      to={parseTo(to).pathname as never}
-      search={parseTo(to).search as never}
-      hash={parseTo(to).hash}
-      state={state as never}
-      replace={replace}
-    />
-  );
+  const navProps: Record<string, unknown> = parseTo(to);
+  if (replace !== undefined) navProps["replace"] = replace;
+  if (state !== undefined) navProps["state"] = state;
+  const Any = TSNavigate as unknown as React.ComponentType<Record<string, unknown>>;
+  return <Any {...navProps} />;
 }
+
 
 // ---------- Outlet ----------
 
